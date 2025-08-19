@@ -42,11 +42,12 @@ const App = () => {
     }
     if (persons.some((p)=>p.name === person.name)){
       const id = persons.find(p=>p.name===person.name).id
+      person.id = id
       if(confirm(`${person.name} is already added to phonebook,replace the old number with a new one?`)){
         personService.update(id,person)
-          .then(returnedPerson =>{
+          .then(() =>{
             setTimer(`${person.name} number was changed`,"success")
-            setPersons(persons.filter(p=>p.id!==id).concat(returnedPerson))
+            setPersons(persons.filter(p=>p.id!==id).concat(person))
           })
           .catch(()=>{
             setTimer(`${person.name} was already removed from server`,"error")
@@ -59,7 +60,9 @@ const App = () => {
         .then(returnedPerson =>{
           setPersons(persons.concat(returnedPerson))
           setTimer(`${person.name} was added`,"success")
-        }).catch(()=>setTimer(`${person.name} couldn't be added`,"error"))
+        }).catch((error)=>{
+          setTimer(error.response.data.error,"error")
+        })
     }
     setNewName('')
     setNewNumber('')
