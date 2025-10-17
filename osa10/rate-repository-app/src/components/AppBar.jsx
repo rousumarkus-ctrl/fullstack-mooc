@@ -31,13 +31,22 @@ const AppBar = () => {
         {
           <>
             <AppBarTab to={'/'} text={'Repositories'}></AppBarTab>
-            {!user && <AppBarTab to={'/login'} text={'Sign in'}></AppBarTab>}
+            {!user && (
+              <>
+                <AppBarTab to={'/login'} text={'Sign in'}></AppBarTab>
+                <AppBarTab to={'/signup'} text={'Sign up'}></AppBarTab>
+              </>
+            )}
             {user && (
-              <AppBarTab
-                to={'/'}
-                text={'Sign out'}
-                onPress={logOut}
-              ></AppBarTab>
+              <>
+                <AppBarTab to={'/review'} text={'Create a review'}></AppBarTab>
+                <AppBarTab to={'/reviews'} text={'My reviews'}></AppBarTab>
+                <AppBarTab
+                  to={'/'}
+                  text={'Sign out'}
+                  onPress={logOut}
+                ></AppBarTab>
+              </>
             )}
           </>
         }

@@ -1,7 +1,8 @@
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, Pressable, StyleSheet, View } from 'react-native';
 import Text from './Text';
 import Stat from './Stat';
 import theme from '../theme';
+import { openURL } from 'expo-linking';
 
 const styles = StyleSheet.create({
   firstLine: { flexDirection: 'row' },
@@ -23,11 +24,22 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   stats: { flexDirection: 'row', justifyContent: 'space-evenly' },
+  linkBackground: {
+    backgroundColor: theme.colors.primary,
+    padding: 5,
+  },
+  linkText: {
+    color: 'white',
+    textAlign: 'center',
+  },
 });
 
-const RepositoryItem = ({ item }) => {
+const RepositoryItem = ({ item, showUrl }) => {
+  if (!item) {
+    return <></>;
+  }
   return (
-    <View style={styles.background}>
+    <View testID="repositoryItem" style={styles.background}>
       <View style={styles.firstLine}>
         <Image
           style={styles.image}
@@ -49,6 +61,14 @@ const RepositoryItem = ({ item }) => {
         <Stat amount={item.reviewCount} text={'Reviews'}></Stat>
         <Stat amount={item.ratingAverage} text={'Rating'}></Stat>
       </View>
+      {showUrl && (
+        <Pressable
+          style={styles.linkBackground}
+          onPress={() => openURL(item.url)}
+        >
+          <Text style={styles.linkText}>Open in GitHub</Text>
+        </Pressable>
+      )}
     </View>
   );
 };
