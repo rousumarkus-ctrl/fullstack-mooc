@@ -1,0 +1,18 @@
+services:
+  server:
+    image: bloglist-backend
+    build:
+      context: ./bloglist-backend
+      dockerfile: Dockerfile
+  nginx:
+    image: bloglist-frontend
+    build:
+      context: ./bloglist-frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    container_name: bloglist-proxy
+    depends_on:
+      - server

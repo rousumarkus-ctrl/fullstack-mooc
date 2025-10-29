@@ -1,0 +1,13 @@
+Script started on 2025-10-23 10:26:03+03:00 [TERM="xterm-256color" TTY="/dev/pts/6" COLUMNS="311" LINES="21"]
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+[?2004h]0;marku@Markus: /mnt/c/Programming/fullstack-mooc/osa12[01;32mmarku@Markus[00m:[01;34m/mnt/c/Programming/fullstack-mooc/osa12[00m$ exitdocker start -i competent_archimedes
+[?2004l[?2004h]0;root@b01aaa4bb07a: /root@b01aaa4bb07a:/# exitnode /usr/src/app/index.js[5Papt install -y nodejs[5@node /usr/src/app/index.js
+[?2004lHello World
+[?2004h]0;root@b01aaa4bb07a: /root@b01aaa4bb07a:/# [Kexit
+[?2004lexit
+[?2004h]0;marku@Markus: /mnt/c/Programming/fullstack-mooc/osa12[01;32mmarku@Markus[00m:[01;34m/mnt/c/Programming/fullstack-mooc/osa12[00m$ exit
+[?2004lexit
+
+Script done on 2025-10-23 10:26:35+03:00 [COMMAND_EXIT_CODE="0"]
