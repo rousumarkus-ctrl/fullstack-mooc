@@ -1,0 +1,11 @@
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZvb0BiYXIuY29tIiwiaWQiOjEsImlhdCI6MTc2MTgxNDM5OH0.ZudXlCB1QyXwmM_Jt9XTKjL7w37D1O_gKIX5V5ZqVsI
+
+{
+  "author":"Author4",
+  "url":"URL6",
+  "title":"Title6",
+  "likes":2,
+  "year":2023
+}
